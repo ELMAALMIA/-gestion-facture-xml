@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Facture</title>
+    <link rel="stylesheet" href="../css/addFacture.css">
+</head>
+<body>
+    <header>
+        <img src="../images/logo-removebg-preview.png" alt="Logo" height="50px" onclick="sendTo()">
+        <button id="deconnectionButton" onclick="deconnection()">Deconnection</button>
+    </header>
+    <form id="factureForm">
+        <h2>Add Facture</h2>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <div class="section">
+            <h3>Fournisseur</h3>
+            <label for="fournisseurNom">Fournisseur Nom:</label>
+            <input type="text" id="fournisseurNom" name="fournisseurNom" required>
+            <div class="adresseSection">
+                <label for="fournisseurRue">Fournisseur Rue:</label>
+                <input type="text" id="fournisseurRue" name="fournisseurRue" required>
+
+                <label for="fournisseurVille">Fournisseur Ville:</label>
+                <input type="text" id="fournisseurVille" name="fournisseurVille" required>
+
+                <label for="fournisseurCodePostal">Fournisseur Code Postal:</label>
+                <input type="text" id="fournisseurCodePostal" name="fournisseurCodePostal" required>
+
+                <label for="fournisseurPays">Fournisseur Pays:</label>
+                <input type="text" id="fournisseurPays" name="fournisseurPays" required>
+            </div>
+       
+        </div>
+
+        <div class="section">
+            <h3>Client</h3>
+            <label for="clientNom">Client Nom:</label>
+            <input type="text" id="clientNom" name="clientNom" required>
+
+            <div class="adresseSection">
+                <label for="clientRue">Client Rue:</label>
+                <input type="text" id="clientRue" name="clientRue" required>
+
+                <label for="clientVille">Client Ville:</label>
+                <input type="text" id="clientVille" name="clientVille" required>
+
+                <label for="clientCodePostal">Client Code Postal:</label>
+                <input type="text" id="clientCodePostal" name="clientCodePostal" required>
+
+                <label for="clientPays">Client Pays:</label>
+                <input type="text" id="clientPays" name="clientPays" required>
+            </div>
+        </div>
+        <div class="section" id="articlesSection">
+            <h3>Articles</h3>
+
+            <div id="articlesContainer">
+                <div class="article">
+                    <label for="article1Description">Article 1 Description:</label>
+                    <input type="text" name="article1Description" required>
+
+                    <label for="article1Quantity">Article 1 Quantity:</label>
+                    <input type="number" name="article1Quantity" required>
+
+                    <label for="article1Price">Article 1 Prix Unitaire:</label>
+                
+                    <input type="number" name="article1Price" step="0.01" required>
+                </div>
+            </div>
+
+            <button type="button" id="addArticleButton" onclick="addArticle()">Add Article</button>
+        </div>
+
+        <div class="section" id="taxesSection">
+            <h3>Taxes</h3>
+
+            <div id="taxesContainer">
+                <div class="tax">
+                
+                    <label for="tax1Description">Tax 1 Description:</label>
+                    <input type="text" name="tax1Description" required>
+
+                    <label for="tax1Montant">Tax 1 Montant:</label>
+                    <input type="number" name="tax1Montant" step="0.01" required>
+                </div>
+            </div>
+
+            <button type="button" onclick="addTax()"  id="addTaxButton" >Add Tax</button>
+        </div>
+        <input type="submit" value="Add Facture">
+    </form>
+    <footer>
+        MQL&copy;2024
+    </footer>
+    <script src="../js/addFactutre.js">
+      
+    </script>
+    
+
+</body>
+</html>

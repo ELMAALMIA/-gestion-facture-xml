@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factures Data</title>
+    <link rel="stylesheet" href="../css/facture.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="../images/logo-removebg-preview.png" alt="Logo" height="50px" onclick="sendTo()">
+            <button id="deconnectionButton" onclick="deconnection()">Deconnection</button>
+        </header>
+<div id="searchContainer">
+    <button onclick="addFacture()" id="addFactureButton">Add Facture</button>
+    <button onclick="generatePDF()" id="pdfall-button">generate pdf</button>
+    <input type="text" id="searchInput" placeholder="Search by ID" >
+    <button onclick="searchFacture()" id="searchButton">Search</button>
+</div>
+
+        <table id="facturesTable" style="align-items: center;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Fournisseur</th>
+                    <th>Client</th>
+                    <th>Articles</th>
+                    <th>Taxes(%)</th>
+                    <th>Total(DHS)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="facturesBody"></tbody>
+        </table>
+
+        <div class="pagination" id="pagination"></div>
+    </div>
+
+    <footer>
+        MQL&copy;2024
+    </footer>
+
+    <script src="../js/facture.js">
+
+    </script>
+
+</body>
+</html>

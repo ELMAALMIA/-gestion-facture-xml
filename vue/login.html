@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Connexion</title>
+   <link rel="stylesheet" href="../css/login.css">
+ 
+</head>
+
+<body>
+
+    <div class="container">
+        <form method="post" onsubmit="return validateForm()">
+        
+                <!-- <img src="images/logo.png" alt="Logo" width="100%" height="80px"> -->
+        
+          
+            <h2>Se Connecter</h2>
+            <label for="username">Nom d'utilisateur:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" name="password" required>
+            <div id="usernameError" class="error-message"></div>
+            <div id="passwordError" class="error-message"></div>
+
+            <input type="submit" name="loginForm" value="Se connecter">
+        </form>
+    </div>
+
+    <footer>
+        MQL&copy;2024
+    </footer>
+
+    <script src="../js/login.js">
+    </script>
+
+</body>
+
+</html>

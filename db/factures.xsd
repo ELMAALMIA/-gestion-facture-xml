@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Définition de l'élément racine 'factures' -->
+    <xs:element name="factures">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="facture" type="FactureType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Définition du type 'FactureType' -->
+    <xs:complexType name="FactureType">
+        <xs:sequence>
+            <xs:element name="date" type="xs:date"/>
+            <xs:element name="fournisseur" type="PersonneType"/>
+            <xs:element name="client" type="PersonneType"/>
+            <xs:element name="articles" type="ArticlesType"/>
+            <xs:element name="taxes" type="TaxesType" minOccurs="0"/>
+            <xs:element name="total" type="xs:decimal"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <!-- Définition du type 'PersonneType' -->
+    <xs:complexType name="PersonneType">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="adresse" type="AdresseType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Définition du type 'AdresseType' -->
+    <xs:complexType name="AdresseType">
+        <xs:sequence>
+            <xs:element name="rue" type="xs:string"/>
+            <xs:element name="ville" type="xs:string"/>
+            <xs:element name="codePostal" type="xs:string"/>
+            <xs:element name="pays" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Définition du type 'ArticlesType' -->
+    <xs:complexType name="ArticlesType">
+        <xs:sequence>
+            <xs:element name="article" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="description" type="xs:string"/>
+                        <xs:element name="quantite" type="xs:integer"/>
+                        <xs:element name="prixUnitaire" type="xs:decimal"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Définition du type 'TaxesType' -->
+    <xs:complexType name="TaxesType">
+        <xs:sequence>
+            <xs:element name="taxe" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="description" type="xs:string"/>
+                        <xs:element name="montant" type="xs:decimal"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

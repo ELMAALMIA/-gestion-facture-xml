@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update Facture</title>
+    <link rel="stylesheet" href="../css/addFacture.css">
+</head>
+<body>
+    <header>
+        <img src="../images/logo-removebg-preview.png" alt="Logo" height="50px" onclick="sendTo()">
+        <button id="deconnectionButton" onclick="deconnection()">Deconnection</button>
+    </header>
+    <form id="factureForm">
+        <h2>Add Facture</h2>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <div class="section">
+            <h3>Fournisseur</h3>
+            <label for="fournisseurNom">Fournisseur Nom:</label>
+            <input type="text" id="fournisseurNom" name="fournisseurNom" required>
+            <div class="adresseSection">
+                <label for="fournisseurRue">Fournisseur Rue:</label>
+                <input type="text" id="fournisseurRue" name="fournisseurRue" required>
+
+                <label for="fournisseurVille">Fournisseur Ville:</label>
+                <input type="text" id="fournisseurVille" name="fournisseurVille" required>
+
+                <label for="fournisseurCodePostal">Fournisseur Code Postal:</label>
+                <input type="text" id="fournisseurCodePostal" name="fournisseurCodePostal" required>
+
+                <label for="fournisseurPays">Fournisseur Pays:</label>
+                <input type="text" id="fournisseurPays" name="fournisseurPays" required>
+            </div>
+       
+        </div>
+
+        <div class="section">
+            <h3>Client</h3>
+            <label for="clientNom">Client Nom:</label>
+            <input type="text" id="clientNom" name="clientNom" required>
+
+            <div class="adresseSection">
+                <label for="clientRue">Client Rue:</label>
+                <input type="text" id="clientRue" name="clientRue" required>
+
+                <label for="clientVille">Client Ville:</label>
+                <input type="text" id="clientVille" name="clientVille" required>
+
+                <label for="clientCodePostal">Client Code Postal:</label>
+                <input type="text" id="clientCodePostal" name="clientCodePostal" required>
+
+                <label for="clientPays">Client Pays:</label>
+                <input type="text" id="clientPays" name="clientPays" required>
+            </div>
+        </div>
+        <div class="section" id="articlesSection">
+            <h3>Articles</h3>
+            <hr/>
+
+            <div id="articlesContainer">
+                
+            </div>
+
+            <button type="button" id="addArticleButton" onclick="addArticleAction()">Add Article</button>
+        </div>
+
+        <div class="section" id="taxesSection">
+            <h3>Taxes</h3>
+            <hr/>
+
+            <div id="taxesContainer">
+                <div class="tax">
+            
+                </div>
+            </div>
+
+            <button type="button" onclick="addTaxAction()"  id="addTaxButton" >Add Tax</button>
+    
+        </div>
+        <input type="number" id="total" name="total"  hidden>
+        <input type="submit" value="update Facture">
+    </form>
+    <footer>
+        MQL&copy;2024
+    </footer>
+    <script src="../js/updateFacture.js"></script>
+      
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<factures>
+    <facture id="F1706550592841">
+        <date>2025-07-06</date>
+        <fournisseur>
+            <nom>f1</nom>
+            <adresse>
+                <rue>29 marjane</rue>
+                <ville>meknes</ville>
+                <codePostal>500</codePostal>
+                <pays>maroc</pays>
+            </adresse>
+        </fournisseur>
+        <client>
+            <nom>ayoub</nom>
+            <adresse>
+                <rue>meknes</rue>
+                <ville>meknes</ville>
+                <codePostal>5000</codePostal>
+                <pays>maroc</pays>
+            </adresse>
+        </client>
+        <articles>
+            
+            
+            
+        <article><description>REDFERG</description><quantite>545</quantite><prixUnitaire>9559</prixUnitaire></article><article><description>755</description><quantite>6565</quantite><prixUnitaire>6</prixUnitaire></article><article><description>descart3</description><quantite>544</quantite><prixUnitaire>65</prixUnitaire></article><article><description>desc article</description><quantite>554</quantite><prixUnitaire>4</prixUnitaire></article></articles>
+        <taxes>
+            
+            
+            
+        <taxe><description>54</description><montant>5</montant></taxe><taxe><description>545995</description><montant>54</montant></taxe><taxe><description>desc3</description><montant>4549645</montant></taxe><taxe><description>desc4</description><montant>4</montant></taxe></taxes>
+        
+    <total>9836329.00</total></facture>
+    <facture id="F1707335472557">
+        <date>2045-05-05</date>
+        <fournisseur>
+            <nom>test</nom>
+            <adresse>
+                <rue>test</rue>
+                <ville>test</ville>
+                <codePostal>test</codePostal>
+                <pays>test</pays>
+            </adresse>
+        </fournisseur>
+        <client>
+            <nom>test</nom>
+            <adresse>
+                <rue>test</rue>
+                <ville>test</ville>
+                <codePostal>6565</codePostal>
+                <pays>test</pays>
+            </adresse>
+        </client>
+        <articles>
+            <article>
+                <description>edsqsdqd</description>
+                <quantite>5454</quantite>
+                <prixUnitaire>65</prixUnitaire>
+            </article>
+        </articles>
+        <taxes/>
+        <total>354510.00</total>
+    </facture>
+</factures>
