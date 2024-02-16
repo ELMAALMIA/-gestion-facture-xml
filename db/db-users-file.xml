@@ -1,16 +1,19 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="users.xsd">
     <user>
         <login>user</login>
-        <password>user123</password>
+        <password>123456789</password>
+        <role>user</role>
     </user>
     <user>
         <login>admin</login>
         <password>admin</password>
+        <role>admin</role>
     </user>
   
     <user>
         <login>ayoub</login>
-        <password>12345678934</password>
+        <password>123456</password>
+        <role>admin</role>
     </user>
-</users>
+<user><login>user4</login><password>123456</password><role>user</role></user><user><login>aaa</login><password>4898</password><role>user</role></user><user><login>dess</login><password>fdsd</password><role>user</role></user></users>

@@ -13,7 +13,13 @@ header {
     padding: 10px;
     display: flex;
     justify-content: space-between; 
+    align-items: center;
 }
+.header-buttons {
+    display: flex;
+    align-items: center;
+}
+
 
 header h1 {
     margin: 0;
@@ -70,7 +76,6 @@ footer {
 }
 
 button#deconnectionButton {
-    margin: 10px;
     align-self: flex-start; 
     color: white; 
     padding: 8px 15px; 
@@ -140,6 +145,25 @@ border-radius: 5px;
 cursor: pointer;
 }
 #pdfall-button{
+background-color: #007bff;
+color: white; 
+padding: 8px 15px; 
+border: none;
+border-radius: 5px; 
+cursor: pointer;
+}
+
+#profileButton {
+    margin: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px; 
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.adminButton{
 background-color: #007bff;
 color: white; 
 padding: 8px 15px; 

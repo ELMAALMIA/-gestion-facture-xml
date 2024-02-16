@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+    <link rel="stylesheet" href="../css/users.css">
+</head>
+<body>
+    <header>
+        <img src="../images/logo-removebg-preview.png" alt="Logo" height="50px" onclick="sendTo()">
+        <!-- <button id="profileButton" onclick="profile_diptacher()">profile</button> -->
+        <button id="deconnectionButton" onclick="deconnection()">Deconnection</button>
+
+    </header>
+    
+    <div class="container">
+        <div id="userForm">
+            <input type="text" id="login" placeholder="Login">
+            <input type="password" id="password" placeholder="Password">
+            <select id="role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <button onclick="addUser()">Add User</button>
+        </div>
+   </div> 
+<table id="usersTable">
+    <thead>
+        <tr>
+            <th>Login</th>
+            <!-- <th>Password</th> -->
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<footer>
+    MQL&copy;2024
+</footer>
+<script src="../js/users.js"></script>
+</body>
+</html>

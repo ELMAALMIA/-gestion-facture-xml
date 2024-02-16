@@ -1,12 +1,23 @@
-
 window.onload = function () {
     var isAuthenticated = localStorage.getItem('authenticated');
-
-    if (!isAuthenticated) {
+    if (isAuthenticated == 'false') {
         window.location.href = '../vue/login.html';
     }
+    displayAdminButton();
 };
 
+function displayAdminButton() {
+    const userRole = localStorage.getItem('role');
+    if(userRole === 'admin') {
+        const manageUsersButton = document.createElement('button');
+        manageUsersButton.innerText = 'Manage Users';
+        manageUsersButton.setAttribute('class', 'adminButton');
+        manageUsersButton.onclick = function() {
+            window.location.href = '../vue/usersManagement.html';
+        };
+        document.getElementById('adminActions').appendChild(manageUsersButton);
+    }
+}
 function searchInputKeyup() {
     var searchInput = document.getElementById('searchInput').value.toLowerCase();
     performSearch(searchInput);
@@ -56,13 +67,11 @@ function performSearch(searchInput) {
         var url = "../db/db-facture-file.xml".toString();
         console.log(url);
 
-        // Your XML loading and parsing logic goes here
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", "../db/db-facture-file.xml", false);
         xmlhttp.send();
         var xmlDoc = xmlhttp.responseXML;
 
-        // Get facture elements from XML
         var factureElements = xmlDoc.getElementsByTagName('facture');
 
         for (var i = 0; i < factureElements.length; i++) {
@@ -79,9 +88,8 @@ function performSearch(searchInput) {
             facturesData.push(facture);
         }
 
-        // Display factures based on the current page
+  
         displayFactures();
-        // Display pagination links
         displayPagination();
     }
 // sendTo home page
@@ -89,7 +97,7 @@ function sendTo(){
     window.location.href = '../vue/facture.html';
 }
 
-    // Helper function to get articles text
+ 
     function getArticlesText(factureElement) {
         var articles = factureElement.getElementsByTagName('articles')[0].getElementsByTagName('article');
         var articlesText = [];
@@ -105,7 +113,17 @@ function sendTo(){
 
 
     function getTaxText(factureElement) {
-        //TODO 
+        //
+
+        var taxes = factureElement.getElementsByTagName('taxes')[0].getElementsByTagName('taxe');
+        var taxesText = [];
+        for (var i = 0; i < taxes.length; i++) {
+            var description = taxes[i].getElementsByTagName('description')[0].textContent;
+            var montant = taxes[i].getElementsByTagName('montant')[0].textContent;
+            var taxText = description + ' (Amount: ' + montant + ')';
+            taxesText.push(taxText);
+        }
+        return taxesText.join(', ');
     }
 
     function displayFactures() {
@@ -126,7 +144,7 @@ function sendTo(){
         var cellArticles = row.insertCell(4);
         var cellTaxes = row.insertCell(5);
         var cellTotal = row.insertCell(6);
-        var cellActions = row.insertCell(7); // New cell for actions
+        var cellActions = row.insertCell(7); 
 
         cellId.innerHTML = facture.id;
         cellDate.innerHTML = facture.date;
@@ -136,7 +154,7 @@ function sendTo(){
         cellTaxes.innerHTML = facture.taxes;
         cellTotal.innerHTML = facture.total;
 
-        // Closure for updateButton event listener
+ 
         var updateButton = (function (factureId) {
             var btn = document.createElement('button');
             btn.innerHTML = 'Update';
@@ -148,7 +166,6 @@ function sendTo(){
             return btn;
         })(facture.id);
 
-        // Closure for deleteButton event listener
         var deleteButton = (function (factureId) {
             var btn = document.createElement('button');
             btn.innerHTML = 'Delete';
@@ -160,7 +177,7 @@ function sendTo(){
             return btn;
         })(facture.id);
 
-        // Closure for pdfButton event listener
+  
         var pdfButton = (function (factureId) {
             var btn = document.createElement('button');
             btn.innerHTML = 'PDF';
@@ -168,16 +185,16 @@ function sendTo(){
             btn.className = 'pdf-button';
             btn.addEventListener('click', function () {
                 alert('PDF button clicked for ID: ' + factureId);
-                // genreate PDF function
+       
                 generatePDF2(factureId);
-                // Implement your PDF logic here
+              
             });
             return btn;
         })(facture.id);
 
         cellActions.appendChild(pdfButton);
 
-        // Append buttons to the actions cell
+  
         cellActions.appendChild(updateButton);
         cellActions.appendChild(deleteButton);
     }
@@ -207,22 +224,22 @@ function  generatePDF(factureId){
 }
 */
 function generatePDF() {
-    // Use xsl
+
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "../xsl/facture.xsl", false);
     xmlhttp.send();
     var xslDoc = xmlhttp.responseXML;
 
-    // Generate a string representation of the transformed XML
+  
     var transformedString = transformXMLToString(xslDoc, "../db/db-facture-file.xml");
 
-    // Open a new window with the transformed content
+
     var printWindow = window.open("", "", "width=800,height=600");
     printWindow.document.open();
     printWindow.document.write(transformedString);
     printWindow.document.close();
 
-    // Print the content and close the window
+
     printWindow.print();
     printWindow.close();
 }
@@ -243,13 +260,13 @@ function transformXMLToString(xslDoc, xmlFilePath) {
 }
 
 function generatePDF2(factureId) {
-    // Use xsl
+
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "../xsl/facture-id.xsl", false);
     xmlhttp.send();
     var xslDoc = xmlhttp.responseXML;
 
-    // Generate a string representation of the transformed XML for the specific factureId
+
     var transformedString = transformXMLToString2(xslDoc, "../db/db-facture-file.xml", factureId);
 
   
@@ -354,19 +371,17 @@ function deleteFacture(factureId) {
 
 
     function deconnection() {
-        // Afficher une alerte de confirmation
         var confirmation = window.confirm("Voulez-vous vraiment vous déconnecter ?");
-
-    
         if (confirmation) {
-  
-            localStorage.removeItem('authenticated');
-
-            // Rediriger vers la page de connexion
+            localStorage.setItem('authenticated', 'false');
+            localStorage.setItem('username', '');
+            localStorage.setItem('role', '');
             window.location.href = '../vue/login.html';
         }
        
     }
+    
+
     function addFacture() {
         window.location.href = '../vue/addFacture.html';
     }

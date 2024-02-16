@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <header>
+        <img src="../images/logo-removebg-preview.png" alt="Logo" height="50px" onclick="sendTo()">
+        <button id="deconnectionButton" onclick="deconnection()">Deconnection</button>
+    </header>
+    
+    <div class="container">
+        <form id="updateForm">
+            <input type="text" id="login" name="login" placeholder="Login" >
+            <input type="password" id="password" name="password" placeholder="Password">
+            <select id="role" name="role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <button type="submit">Update User</button>
+        </form>
+    </div>
+
+
+
+    <footer>
+        MQL&copy;2024
+    </footer>
+
+    <script src="../js/profile.js"></script>
+</body>
+</html>

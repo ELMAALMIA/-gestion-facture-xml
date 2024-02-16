@@ -24,21 +24,20 @@ console.log(url);
         var xmlPassword = userElements[i].getElementsByTagName('password')[0].textContent;
 
         if (username === xmlUsername && password === xmlPassword) {
-            // Store authentication status in local storage
-            localStorage.setItem('authenticated', 'true');
 
-            // Redirect to facture page
+            localStorage.setItem('authenticated', 'true');
+            localStorage.setItem('username', username);
+            localStorage.setItem('role', userElements[i].getElementsByTagName('role')[0].textContent); 
             window.location.href = '../vue/facture.html';
             return false;
         }
     }
 
-    // Display error message if credentials are invalid
     document.getElementById("usernameError").innerHTML = "* Nom d'utilisateur ou mot de passe incorrect";
     return false;
 }
 
-// Check for authentication status on page load
+
 window.onload = function () {
     var isAuthenticated = localStorage.getItem('authenticated');
     if (isAuthenticated === 'true') {

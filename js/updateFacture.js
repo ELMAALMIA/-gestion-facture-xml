@@ -44,7 +44,10 @@ function populateForm(data) {
     document.getElementById('articlesContainer').innerHTML = '';
     document.getElementById('taxesContainer').innerHTML = '';
    
-  addArticle(data.articles);
+
+
+
+  addArticle(data.articles,0);
   addTax(data.taxes);
   updateTotal();
 
@@ -200,6 +203,7 @@ function addArticle(articlesData, startIndex = 0) {
     if (articlesData.article && Array.isArray(articlesData.article)) {
         articlesData.article.forEach((article, index) => {
             var currentIndex = startIndex + index + 1; 
+            console.log(article);
             var articleHtml = `
                 <div class="article">
                     <label for="article${currentIndex}Description">Article ${currentIndex} Description:</label>
@@ -220,14 +224,17 @@ function addArticle(articlesData, startIndex = 0) {
 function deconnection() {
     var confirmation = window.confirm("Voulez-vous vraiment vous déconnecter ?");
     if (confirmation) {
-        localStorage.removeItem('authenticated');
+        localStorage.setItem('authenticated', 'false');
+        localStorage.setItem('username', '');
+        localStorage.setItem('role', '');
         window.location.href = '../vue/login.html';
     }
+   
 }
 
 window.onload = function () {
     var isAuthenticated = localStorage.getItem('authenticated');
-    if (!isAuthenticated) {
+    if (isAuthenticated == 'false') {
         window.location.href = '../vue/login.html';
     }
 };

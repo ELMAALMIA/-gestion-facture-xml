@@ -1,0 +1,131 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #4f80b4;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    margin: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#deconnectionButton {
+    background-color: red;
+}
+.container {
+    padding: 20px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack children vertically */
+    width: 100%; /* Ensures the container fills its parent */
+}
+
+table {
+    max-width: 90%; /* Adjust this to control the maximum width */
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: auto; /* Allows the table to grow based on content */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-link {
+    padding: 8px;
+    margin: 0 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #007bff;
+}
+/* .container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.active {
+    background-color: #007bff;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    color: #777;
+    padding: 10px;
+    background-color: #f2f2f2;
+    margin-top: auto;
+}
+
+.update-button, .delete-button, .pdf-button, #pdfall-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-button {
+    background-color: #28a745;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+
+input[type="text"], input[type="password"], select {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(100% - 22px); 
+}
+
+.delete-button{
+    background-color: #dc3545; 
+    color: white; 
+    padding: 8px 15px; 
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+} 
+
+.update-button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px; 
+}
